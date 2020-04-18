@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="landing">
+	
+	<h1>Stick with your habits</h1>
+
+  	<img src="{{ url_for('static', filename='landing.png') }}">
+	<div class="tagline">Stay on top of your daily progress and keep up the good work!</div>
+		<a href="/register">
+	<div class="cta">Sign up</div>
+		</a>
+</div>
+{% endblock content%}

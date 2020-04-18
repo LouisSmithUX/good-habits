@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card auth">
+	<form action="" method="POST" class="auth_form">
+		{{	form.hidden_tag() }}
+		<fieldset class="auth_form">
+			<legend>Log In</legend>
+			<div class="form-group">
+				{{form.email.label(class="form-control-label")}}
+				{% if form.email.errors %}
+					{{form.email(class="form-control-input")}}
+				<div class="invalid-feedback">
+					{% for error in form.email.errors %}
+						<span>{{error}}</span>
+					{% endfor %}
+				</div>
+				{% else %}
+				{{form.email(class="form-control-input")}}
+				{% endif %}
+			</div>
+			<div class="form-group">
+				{{form.password.label(class="form-control-label")}}
+				{% if form.password.errors %}
+					{{form.password(class="form-control-input")}}
+				<div class="invalid-feedback">
+					{% for error in form.password.errors %}
+						<span>{{error}}</span>
+					{% endfor %}
+				</div>
+				{% else %}
+				{{form.password(class="form-control-input")}}
+				{% endif %}
+			</div>
+			<div class=" remember_me">
+				{{ form.remember() }}
+				{{ form.remember.label() }}
+
+			</div>
+		</fieldset>
+		<div class="form-group">
+			{{form.submit(class="submit-button")}}
+			<a class='extra_links' href="{{url_for('users.reset_request')}}">Forgot Password?</a>
+		</div>
+	</form>
+</div>
+<div class="extra_links">
+		Need an account? <a href="{{url_for('users.register')}}" class="ml-2">Sign Up Now</a>
+</div>
+{% endblock content%}

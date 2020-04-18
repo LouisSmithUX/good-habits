@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block content %}
+	<div class="card auth">
+	<form class='auth_form'action="" method="POST" enctype="multipart/form-data">
+		{{	form.hidden_tag() }}
+		<fieldset class="auth_form">
+			<legend class="border-bottom mb-4">Account Info</legend>
+			<div class="form-group">
+				{{form.username.label(class="form-control-label")}}
+				{% if form.username.errors %}
+					{{form.username(class="form-control-input")}}
+				<div class="invalid-feedback">
+					{% for error in form.username.errors %}
+						<span>{{error}}</span>
+					{% endfor %}
+				</div>
+				{% else %}
+				{{form.username(class="form-control-input")}}
+				{% endif %}
+			</div>
+			<div class="form-group">
+				{{form.email.label(class="form-control-label")}}
+				{% if form.email.errors %}
+					{{form.email(class="form-control-input")}}
+				<div class="invalid-feedback">
+					{% for error in form.email.errors %}
+						<span>{{error}}</span>
+					{% endfor %}
+				</div>
+				{% else %}
+				{{form.email(class="form-control-input")}}
+				{% endif %}
+			</div>
+			<img class="img-rounded-circle form-group" src="{{image_file}}">
+			<div class="form-group">
+				{{ form.picture.label(class="form-control-label") }}
+				{{ form.picture(class="form-control-file") }}
+				{% if form.picture.errors %}
+					{% for error in form.picture.errors %}
+						<span class="text-danger">{{error}}</span></br>
+					{% endfor %}
+				{% endif %}
+			</div>
+		</fieldset>
+		<div class="form-group">
+			{{form.submit(class="submit-button")}}
+		</div>
+	</form>
+</div>
+{% endblock content%}

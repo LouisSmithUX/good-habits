@@ -1,0 +1,116 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="card home">
+	<div class="calendar">
+		<div class="calendar_header">
+			<a href="/home?month={{months.prev_month.year}}-{{months.prev_month.month}}">
+				<div id="previous_month"><span class="month_arrow">&#9664;</span>Prev<span class='full_month'>ious month</span></div>
+			</a>
+			<div class="month_name">{{months.current_month.strftime("%B")}}</div>
+			<a href="/home?month={{months.next_month.year}}-{{months.next_month.month}}">
+				<div id="next_month">Next<span class='full_month'>&nbsp;month</span><span class="month_arrow">&#9654;</span></div>
+			</a>
+		</div>
+		<div class="calendar_container">
+ 			{% for day in calendar %}
+					<div class="day_group">
+					{% if day.date.month != months.current_month.month %}
+						<div class="date greyed">{{day.date.day}}</div>
+					{% elif day.date == today %}
+						<div class="date today">{{day.date.day}}</div>
+					{% else %}
+						<div class="date">{{day.date.day}}</div>
+					{% endif %}
+		 			{% for d,habit,event in day.events %}
+		 				{% if day.date == today %}
+							{% if event == None %}
+			 					<div onclick="toggleCompletion(caller=this,date='{{day.date}}',habit={{habit}})" class="row today" data_id="{{habit}}"></div>
+			 				{% elif event > 20 %}
+			 					<div  onclick="toggleCompletion(caller=this,date='{{day.date}}',habit={{habit}})" class="row today level6" data_id="{{habit}}"></div>
+							{% elif event>11 %}
+			 					<div  onclick="toggleCompletion(caller=this,date='{{day.date}}',habit={{habit}})" class="row today level5" data_id="{{habit}}"></div>
+							{% elif event>6 %}
+			 					<div  onclick="toggleCompletion(caller=this,date='{{day.date}}',habit={{habit}})" class="row today level4" data_id="{{habit}}"></div>
+							{% elif event>3 %}
+			 					<div  onclick="toggleCompletion(caller=this,date='{{day.date}}',habit={{habit}})" class="row today level3" data_id="{{habit}}"></div>
+							{% elif event>1 %}
+			 					<div  onclick="toggleCompletion(caller=this,date='{{day.date}}',habit={{habit}})" class="row today level2" data_id="{{habit}}"></div>
+			 				{% else %}
+			 					<div  onclick="toggleCompletion(caller=this,date='{{day.date}}',habit={{habit}})" class="row today level1" data_id="{{habit}}"></div>
+			 				{% endif %}
+		 				{% else %}
+							{% if event == None %}
+			 					<div class="row" data_id="{{habit}}"></div>
+			 				{% elif event > 20 %}
+			 					<div class="row level6" data_id="{{habit}}"></div>
+							{% elif event>11 %}
+			 					<div class="row level5" data_id="{{habit}}"></div>
+							{% elif event>6 %}
+			 					<div class="row level4" data_id="{{habit}}"></div>
+							{% elif event>3 %}
+			 					<div class="row level3" data_id="{{habit}}"></div>
+							{% elif event>1 %}
+			 					<div class="row level2" data_id="{{habit}}"></div>
+			 				{% else %}
+			 					<div class="row level1" data_id="{{habit}}"></div>
+			 				{% endif %}
+		 				{% endif %}
+					{% endfor %}
+				</div>
+			{% endfor %}
+ 		</div>
+	</div>
+	<div class="habits">
+		<div class="habit_header">
+			<h2>Habits</h2>
+			<button class="new_habit">+ Add habit</button>
+		</div>
+		{% for i in range(7) %}
+		{% if i<2 %}
+		<div class="habit_list">
+		{% elif i<5 %}
+		<div class="habit_list tablet">
+		{% else %}
+		<div class="habit_list phone">
+		{% endif %}
+			{% for habit in habits%}
+			<div class="habit" data_id="{{habit.id}}">
+				{{ habit.name }}
+				<span class="delete_habit" onclick="deleteHabit(caller=this, habit_id='{{habit.id}}')">-</span>
+			</div>
+			{% endfor %}
+		</div>
+		{% endfor %}
+	</div>
+</div>
+
+<div id="modal">
+		<div class="modal_bg"></div>
+		<div class="card">
+		<form action="" method="POST">
+			{{	form.hidden_tag() }}
+			<fieldset>
+				<legend>New habit</legend>
+				<div>
+					{% if form.name.errors %}
+						{{form.name(class="form-control-input")}}
+					<div class="invalid-feedback">
+						{% for error in form.name.errors %}
+							<span>{{error}}</span>
+						{% endfor %}
+					</div>
+					{% else %}
+					{{form.name(class="form-control-input")}}
+					{% endif %}
+				</div>
+				<div>
+					{{form.submit(class='submit-button')}}
+				</div>
+			</fieldset>
+		</form>		
+		</div>
+	</div>
+	
+{% endblock content %}
