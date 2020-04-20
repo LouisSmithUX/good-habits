@@ -3,6 +3,15 @@
 {% block content %}
 
 <div class="card home">
+
+	{% if calendar == [] %}
+	<div class="empty_state">
+		<h2>You don't have any active habits</h2>
+		<p>Get started with your first habit</p>
+		<button id="new_habit" class="black-button">Add habit</button>
+	</div>
+	{% else %}
+
 	<div class="calendar">
 		<div class="calendar_header">
 			<a href="/home?month={{months.prev_month.year}}-{{months.prev_month.month}}">
@@ -65,7 +74,7 @@
 	<div class="habits">
 		<div class="habit_header">
 			<h2>Habits</h2>
-			<button class="new_habit">+ Add habit</button>
+			<button id="new_habit">+ Add habit</button>
 		</div>
 		{% for i in range(7) %}
 		{% if i<2 %}
@@ -78,17 +87,23 @@
 			{% for habit in habits%}
 			<div class="habit" data_id="{{habit.id}}">
 				{{ habit.name }}
-				<span class="delete_habit" onclick="deleteHabit(caller=this, habit_id='{{habit.id}}')">-</span>
+				<span class="delete_habit">
+					<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<rect x="6" y="10" width="10" height="2" fill="#BBBBBB"/>
+					<rect x="0.5" y="0.5" width="21" height="21" rx="1.5" stroke="#BBBBBB"/>
+					</svg>
+				</span>
 			</div>
 			{% endfor %}
 		</div>
 		{% endfor %}
 	</div>
 </div>
+	{% endif %}
 
 <div id="modal">
-		<div class="modal_bg"></div>
-		<div class="card">
+	<div class="modal_bg"></div>
+	<div class="card" id="create_habit_modal">
 		<form action="" method="POST">
 			{{	form.hidden_tag() }}
 			<fieldset>
@@ -106,11 +121,25 @@
 					{% endif %}
 				</div>
 				<div>
-					{{form.submit(class='submit-button')}}
+					{{form.submit(class='black-button')}}
 				</div>
 			</fieldset>
 		</form>		
-		</div>
 	</div>
+	<div class="card" id="delete_habit_modal">
+		<h2>Are you sure?</h2>
+		<div>You are about to delete this habit. All previous date will be lost.</div>
+			<div>
+				<button class="black-button" id="confirm_delete" >Delete habit</button>
+				<button id="cancel_delete">Cancel</button>
+			</div>
+	</div>
+
+
+</div>
 	
 {% endblock content %}
+{% block scripts %}
+	<script src="{{ url_for('static', filename='main.js') }}"></script>
+	<script src="{{ url_for('static', filename='home.js') }}"></script>
+{% endblock %}

@@ -35,6 +35,10 @@ a:active {
   flex-shrink: 0;
 }
 
+.logo img{
+  width: 160px;
+}
+
 .navbar {
   height: 60px;
   margin: auto;
@@ -49,6 +53,26 @@ a:active {
   color: #444444;
   margin-left: 10px;
   font-weight: 500;
+}
+
+#hamburger {
+  cursor: pointer;
+}
+
+#hamburger ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 27px;
+  padding: 10px;
+}
+
+#hamburger ul li {
+  list-style-type: none;
+  height: 3px;
+  background: #888;
+  content: "";
+  width: 25px;
 }
 
 @media screen and (min-width:1040px) {
@@ -66,11 +90,35 @@ a:active {
   .navbar {
     padding: 0px 50px;
   }
+
+  .sign_up {
+    border: 1px solid #444;
+    border-radius: 2px;
+  }
+
+  #hamburger {
+    display: none;
+  }
 }
 
-.sign_up {
-  border: 1px solid #444;
-  border-radius: 2px;
+@media screen and (max-width: 480px) {
+  .navbar-nav {
+    display: none;
+    position: fixed;
+    flex-direction: column;
+    right: 0px;
+    padding: 10px;
+    top: 60px;
+    background: #FAFAFA;
+    box-shadow: -1px 1px 5px rgba(0,0,0,0.06);
+    width: 50vw;
+    border: 1px solid #eee;
+}
+
+  .navbar a {
+    padding: 10px 20px 10px 0px;
+  }
+
 }
 
 footer {
@@ -95,6 +143,8 @@ header, #modal.card {
   text-align: center;
 }
 
+
+
 .landing h1 { 
     font-size: 36pt;
     color: #333;
@@ -102,9 +152,14 @@ header, #modal.card {
     text-transform: uppercase;
 }
 
+.landing img {
+ width: 600px; 
+}
+
 .tagline {
   font-size: 24px;
   width: 400px;
+  max-width: 80vw;
   margin: 50px auto;
 }
 
@@ -118,11 +173,20 @@ header, #modal.card {
   text-transform: uppercase;
   border-radius: 2px;
   cursor: pointer;
-  margin: auto;
+  margin: 50px auto;
   width: 200px;
   line-height: 36px;
 }
 
+@media screen and (max-width:1039px) {
+  .landing {
+    margin-top: 50px;
+  }
+
+  .landing img {
+    width: 70%;
+  }
+}
 /*General*/
 
 .card {
@@ -208,6 +272,9 @@ form.auth_form legend {
 
 .submit-button {
   width: 100%;
+}
+
+.black-button {
   background: black;
   height: 40px;
   border: none;
@@ -237,6 +304,23 @@ form.auth_form legend {
   border-radius: 50px;
 }
 
+/*Home Empty State*/
+
+.empty_state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.empty_state h2 {
+  text-transform: uppercase;
+}
+
+.empty_state .black-button {
+  padding: 0px 30px;
+}
+
 /*Home/calendar page*/
 
 .home {
@@ -261,7 +345,7 @@ form.auth_form legend {
   font-weight: 500;
 }
 
-.new_habit {
+.habits #new_habit {
   background: none;
   margin-right: 10px;
   border: none;
@@ -273,7 +357,7 @@ form.auth_form legend {
 }
 
 @media screen and (max-width: 480px) {
-  .new_habit {
+  .habits #new_habit {
     background: white;
     position: fixed;
     bottom: 0px;
@@ -323,7 +407,7 @@ form.auth_form legend {
 
 .delete_habit {
   cursor: pointer;
-  padding: 10px;
+  display: flex;
 }
 
 .calendar {
@@ -441,7 +525,7 @@ form.auth_form legend {
 
 /*Modal*/
 
-#modal {
+#modal, #create_habit_modal, #delete_habit_modal {
   display: none;
 }
 
@@ -469,15 +553,31 @@ form.auth_form legend {
   }
 }
 
-#modal form legend {
+#modal form legend, #modal h2 {
   font-weight: 600;
   font-size: 24px;
   text-transform: uppercase;
   margin-bottom: 20px;
 }
 
-#modal .submit-button {
-  width: unset;
+#modal .black-button {
+  padding: 0px 20px;
+  float: right;
+}
+
+#modal #confirm_delete {
+  padding: 0px 20px;
+  float: right;
+  background: #DF4343;
+}
+
+#modal #cancel_delete {
+  background: none;
+  height: 40px;
+  border: none;
+  font-size: 16px;
+  margin: 20px 20px 10px 0px;
+  cursor: pointer;
   padding: 0px 20px;
   float: right;
 }

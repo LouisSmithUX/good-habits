@@ -38,7 +38,7 @@
 			</div>
 		</fieldset>
 		<div class="form-group">
-			{{form.submit(class="submit-button")}}
+			{{form.submit(class="submit-button black-button")}}
 			<a class='extra_links' href="{{url_for('users.reset_request')}}">Forgot Password?</a>
 		</div>
 	</form>
@@ -47,3 +47,6 @@
 		Need an account? <a href="{{url_for('users.register')}}" class="ml-2">Sign Up Now</a>
 </div>
 {% endblock content%}
+{% block scripts %}
+	<script src="{{ url_for('static', filename='main.js') }}"></script>
+{% endblock %}

@@ -43,8 +43,11 @@
 			</div>
 		</fieldset>
 		<div class="form-group">
-			{{form.submit(class="submit-button")}}
+			{{form.submit(class="submit-button black-button")}}
 		</div>
 	</form>
 </div>
 {% endblock content%}
+{% block scripts %}
+	<script src="{{ url_for('static', filename='main.js') }}"></script>
+{% endblock %}
