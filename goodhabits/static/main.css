@@ -26,6 +26,7 @@ a:link,
 a:visited,
 a:hover,
 a:active {
+  color: #444444;
   text-decoration: none;
 }
 
@@ -50,9 +51,12 @@ a:active {
 
 .navbar-nav a {
   text-decoration: none;
-  color: #444444;
   margin-left: 10px;
   font-weight: 500;
+}
+
+.navbar-nav a.sign_up {
+  color: white;
 }
 
 #hamburger {
@@ -153,14 +157,14 @@ header, #modal.card {
 }
 
 .landing img {
- width: 600px; 
+ width: 400px; 
 }
 
 .tagline {
   font-size: 24px;
   width: 400px;
   max-width: 80vw;
-  margin: 50px auto;
+  margin: 40px auto;
 }
 
 .cta {
@@ -173,7 +177,7 @@ header, #modal.card {
   text-transform: uppercase;
   border-radius: 2px;
   cursor: pointer;
-  margin: 50px auto;
+  margin: 40px auto;
   width: 200px;
   line-height: 36px;
 }
@@ -214,7 +218,7 @@ header, #modal.card {
   .container {
     width: 1040px;
     margin: auto;
-    margin-top: 70px;
+    margin-top: 50px;
   }
 
   .card {
@@ -407,7 +411,7 @@ form.auth_form legend {
 
 .delete_habit {
   cursor: pointer;
-  display: flex;
+  display: none;
 }
 
 .calendar {
@@ -433,10 +437,6 @@ form.auth_form legend {
 
   .calendar {
     width: 680px;
-  }
-
-  .calendar_header {
-   padding: 0px 20px;
   }
 }
 

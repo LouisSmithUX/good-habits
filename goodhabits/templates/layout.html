@@ -12,7 +12,7 @@
 
 	  gtag('config', 'UA-164031381-1');
 	</script>
-
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
 	<!-- Required meta tags -->
     <meta charset="utf-8">
@@ -43,7 +43,7 @@
 	        	  <a href="{{url_for('users.logout')}}">Logout</a>
 	        	{% else %}
 		          <a href="{{url_for('users.login')}}">Login</a>
-		          <a class="sign_up" href="{{url_for('users.register')}}">Sign Up</a>
+		          <a class="black-button sign_up" href="{{url_for('users.register')}}">Sign Up</a>
 	          {% endif %}
 	        </div>
 	      </div>

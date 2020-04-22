@@ -85,7 +85,7 @@
 		<div class="habit_list phone">
 		{% endif %}
 			{% for habit in habits%}
-			<div class="habit" data_id="{{habit.id}}">
+			<div class="habit" data_id="{{habit.id}}" onmouseover="this.getElementsByTagName('span')[0].style.display='flex';" onmouseout="this.getElementsByTagName('span')[0].style.display='none';">
 				{{ habit.name }}
 				<span class="delete_habit">
 					<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
