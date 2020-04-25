@@ -2,14 +2,66 @@
 {% block content %}
 <div class="landing">
 	
-	<h1>Stick with your habits</h1>
-
   	<img src="{{ url_for('static', filename='landing.png') }}">
-	<div class="tagline">Stay on top of your daily progress and keep up the good work!</div>
+	<div class="">
+		
+		<h1>Don't break the chain</h1>
+
+	<div class="tagline">Track your daily habits with this free habit tracker and keep up the good work!</div>
 		<a href="/register">
 	<div class="cta">Sign up</div>
 		</a>
+	</div>
 </div>
+
+<div class="quote_section">
+	<div class="quote_box">
+		<div class="quote">
+			If you want better results, then forget about setting goals. Focus on your system instead.
+		</div>
+		<div class="author">— James  Clear —<br> Author of “atomic habits”</div>
+	</div>
+</div>
+
+<div class="steps">
+	<div class="step">
+		<div class="step_numb_holder"><div class="step_number step1">1
+		</div></div>
+		<div class="step_desc">
+			<h3>Add your first habit</h3>
+			<p>You have daily habits you want to track and want to follow your progress online. Maybe you just started distance learning and want to keep good habits. </p>
+		</div>
+	</div>
+	<div class="step">
+		<div class="step_desc">
+			<h3>Check your progress daily</h3>
+			<p>Come back everyday once you’ve completed your habit and check it off. Repeat this enough times and you’ve built a routine!</p>
+		</div>
+		<div class="step_numb_holder"><div class="step_number step2">2</div></div>
+	</div>
+	<div class="step">
+		<div class="step_numb_holder"><div class="step_number step3">3</div></div>
+		<div class="step_desc">
+			<h3>Get (gentle) reminders when you miss a day</h3>
+			<span>— Coming soon —</span>
+			<p>You have daily habits you want to track and want to follow your progress online. Maybe you just started distance learning and want to keep good habits. </p>
+		</div>
+	</div>
+</div>
+
+<div class="divider"></div>
+
+<div class="why">
+	<div class="why_header">	
+		<h2>Why use an online habit tracker?</h2>
+	</div>
+	<p>You may have tried in the past to track your habits. You made a list of the best habits to track, found a printout calendar and hung it up on your fridge. If you were like me, you did it for a couple weeks and then the hassle of looking for a pen each morning was too much. One day you missed filling the calendar. Then you missed a couple of days, and before you knew it you weren’t tracking it at all anymore. And then you lost the habit. </p>
+	<p>You can break down a habit into a feedback loop with four steps: <strong>cue, craving, response &amp; reward</strong>. The trick to stay commited is to have the cue not come from you but from an external source. If the cue doesn’t come from you, you don’t have to spend the extra cognitive energy reminding yourself to check your list of habits - it reminds you of what is left to do.</p>
+	<p>Remember habit tracking is not the same as goal setting. Continuous habits over years act like compound interest on your skills and abilities, much more than some ambitious but sparse objectives.</p>
+
+
+</div>
+
 {% endblock content%}
 {% block scripts %}
 	<script src="{{ url_for('static', filename='main.js') }}"></script>

@@ -4,7 +4,7 @@ body {
   background: #fafafa;
   color: #444444;
   font-family: Encode Sans;
-  font-size: 16px;
+  font-size: 18px;
   margin: 0px;
   display: flex;
   flex-direction: column;
@@ -52,11 +52,12 @@ a:active {
 .navbar-nav a {
   text-decoration: none;
   margin-left: 10px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .navbar-nav a.sign_up {
   color: white;
+  text-transform: uppercase;
 }
 
 #hamburger {
@@ -144,32 +145,30 @@ header, #modal.card {
 /*Landing */
 
 .landing {
-  text-align: center;
+  margin-bottom: 150px;
 }
 
-
-
 .landing h1 { 
-    font-size: 36pt;
+    font-size: 42px ;
     color: #333;
-    margin-bottom: 20px;
     text-transform: uppercase;
+    padding: 50px 0px 40px 0px;
 }
 
 .landing img {
  width: 400px; 
+  float: right;
 }
 
 .tagline {
   font-size: 24px;
-  width: 400px;
+  width: 450px;
   max-width: 80vw;
-  margin: 40px auto;
 }
 
 .cta {
   background: black;
-  height: 40px;
+  height: 50px;
   border: none;
   color: white;
   font-size: 18px;
@@ -177,20 +176,223 @@ header, #modal.card {
   text-transform: uppercase;
   border-radius: 2px;
   cursor: pointer;
-  margin: 40px auto;
   width: 200px;
-  line-height: 36px;
+  line-height: 46px;
+  margin: 80px 0px;
+  text-align: center;
+}
+
+.quote_section {
+  width: 100vw;
+  background: black;
+  position: relative;
+  overflow: hidden;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  clip-path: polygon(0 20%,100% 0,100% 80%,0 100%);
+  font-family: 'Enriqueta','Georgia';
+  color: #FAFAFA;
+}
+
+.quote_box {
+  width: 500px;
+  margin: 90px auto;
+  padding: 40px;
+  background: rgba(255,255,255,0.1);
+  transform: rotate(-1deg);
+}
+
+.quote_box * {
+  transform: rotate(1deg);
+}
+
+.quote_box::before {
+  content: "“";
+  position: absolute;
+  font-size: 180px;
+  line-height: 0px;
+  left: -40px;
+}
+
+.quote_box::after {
+  content: "”";
+  position: absolute;
+  font-size: 180px;
+  margin-top: -60px;
+  right: -40px;
+}
+
+.quote  { 
+  font-size: 24px;
+    }
+
+.author {
+  text-align: right;
+  text-transform: uppercase;
+  margin-top: 20px;
+  font-family: "Encode sans";
+  letter-spacing: 1px;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  margin: 100px 0px;
+}
+
+.step_numb_holder {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.step_number {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 40px;
+  font-weight: 700;
+  opacity: 0.5;
+}
+
+.step_number.step1 {
+  background: #F9BBBB;
+}
+
+.step_number.step2 {
+  background: #BFDBFF;
+}
+
+.step_number.step3 {
+  background: #BFFFC6;
+}
+
+.step_desc {
+  flex-grow: 2;
+  flex-basis: min-content;
+  padding: 0px 50px;
+}
+
+.step_desc h3 {
+  text-transform: uppercase;
+  text-size: 24px;
+}
+
+.step_desc  p {
+  line-height: 150%;
+}
+
+.divider  {
+  background: black;
+  height: 20px;
+    width: 100vw;
+  background: black;
+  position: relative;
+  overflow: hidden;
+  left: 50%;
+  right: 50%;
+  margin: 50px -50vw;
+    clip-path: polygon(0 20%,100% 0,100% 80%,0 100%);
+
+}
+
+.why {
+  margin: 100px;
+}
+
+.why_header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.why_header h2 {
+  font-size: 28px;
+  text-transform: uppercase;
+}
+
+.why_header h2:after {
+  content: '';
+  width: 200px;
+  height: 5px;
+  background: #BFFFC6;
+  position: relative;
+  bottom: -15px;
+  display: block;
+  margin: auto;
+}
+
+.why p {
+  max-width: 600px;
+  line-height: 160%;
+  margin: 20px auto;
 }
 
 @media screen and (max-width:1039px) {
   .landing {
-    margin-top: 50px;
+    margin-top: 40px;
+    text-align: center;
   }
+
+  .landing {
+  margin-bottom: 0px;
+}
+
+  .landing h1 { 
+  padding: 20px 0px 0px 0px;
+
+}
 
   .landing img {
     width: 70%;
+    float: none;
+  }
+
+  .tagline {
+  margin: 20px auto;
+  }
+
+  .cta {
+    margin: 40px auto;
+  }
+
+  .quote_section {
+    clip-path: polygon(0 5%,100% 0,100% 95%,0 100%);
   }
 }
+
+@media screen and (max-width: 480px) {
+  .landing {
+    margin-bottom: 0px;
+  }
+
+  .quote_box {
+    width: unset;
+  }
+
+  .quote_box::before {
+    left: 0px;
+  }
+
+  .quote_box::after {
+    right: 0px;
+  }
+
+  .step_desc {
+      padding: 0px 30px;
+  }
+
+  .why {
+    margin: 100px 30px;
+  }
+}
+
+
 /*General*/
 
 .card {
