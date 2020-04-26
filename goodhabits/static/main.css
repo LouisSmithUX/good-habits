@@ -37,7 +37,7 @@ a:active {
 }
 
 .logo img{
-  width: 160px;
+  width: 200px;
 }
 
 .navbar {
@@ -55,10 +55,6 @@ a:active {
   font-weight: 600;
 }
 
-.navbar-nav a.sign_up {
-  color: white;
-  text-transform: uppercase;
-}
 
 #hamburger {
   cursor: pointer;
@@ -75,7 +71,7 @@ a:active {
 #hamburger ul li {
   list-style-type: none;
   height: 3px;
-  background: #888;
+  background: #111;
   content: "";
   width: 25px;
 }
@@ -86,9 +82,6 @@ a:active {
     padding: 0px;
   }
 
-  .navbar a {
-    padding: 10px 20px;
-  }
 }
 
 @media screen and (min-width: 481px) {
@@ -96,9 +89,20 @@ a:active {
     padding: 0px 50px;
   }
 
-  .sign_up {
-    border: 1px solid #444;
+  .navbar a {
+    padding: 10px 20px;
+  }
+
+  .navbar-nav a.sign_up {
+    color: white;
+    text-transform: uppercase;
+    background: black;
+    height: 40px;
+    border: none;
+    font-size: 16px;
+    margin: 20px 0px 10px 0px;
     border-radius: 2px;
+    cursor: pointer;
   }
 
   #hamburger {
