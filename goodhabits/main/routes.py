@@ -1,4 +1,4 @@
-from flask import render_template, request, Blueprint, flash,redirect, url_for
+from flask import render_template, request, Blueprint, flash,redirect, url_for, Flask, send_from_directory
 from goodhabits.models import Habit
 from goodhabits.habits.forms import HabitForm
 from flask_login import current_user, login_required
@@ -57,3 +57,9 @@ ORDER BY dd::DATE ASC, habit ASC;"""\
 @main.route("/landing")
 def landing():
 	return render_template('landing.html')
+
+
+@main.route('/robots.txt')
+@main.route('/sitemap.xml')
+def static_from_root():
+    return send_from_directory('static', request.path[1:])
