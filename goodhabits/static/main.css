@@ -96,7 +96,7 @@ a:active {
   .navbar-nav a.sign_up {
     color: white;
     text-transform: uppercase;
-    background: black;
+    background: #333333;
     height: 40px;
     border: none;
     font-size: 16px;
@@ -171,7 +171,7 @@ header, #modal.card {
 }
 
 .cta {
-  background: black;
+  background: #333333;
   height: 50px;
   border: none;
   color: white;
@@ -187,8 +187,8 @@ header, #modal.card {
 }
 
 .quote_section {
-  width: 100vw;
-  background: black;
+  width: 99vw;
+  background: #222222;
   position: relative;
   overflow: hidden;
   left: 50%;
@@ -293,10 +293,9 @@ header, #modal.card {
 }
 
 .divider  {
-  background: black;
+  background: #333333;
   height: 20px;
-    width: 100vw;
-  background: black;
+    width: 99vw;
   position: relative;
   overflow: hidden;
   left: 50%;
@@ -485,7 +484,7 @@ form.auth_form legend {
 }
 
 .black-button {
-  background: black;
+  background: #333333;
   height: 40px;
   border: none;
   color: white;
@@ -571,7 +570,7 @@ form.auth_form legend {
     background: white;
     position: fixed;
     bottom: 0px;
-    width: 100vw;
+    width: 99vw;
     left: 0px;
     height: 60px;
     font-size: 18px;
@@ -736,7 +735,7 @@ form.auth_form legend {
 }
 
 .modal_bg {
-  width: 100vw;
+  width: 99vw;
   height: 100vh;
   position: absolute;
   left: 0;
